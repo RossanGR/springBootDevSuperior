@@ -1,6 +1,7 @@
 package com.devsuperior.dslsit.dto;
 
 import com.devsuperior.dslsit.entities.Game;
+import com.devsuperior.dslsit.projections.GameMinProjection;
 
 public class GameMinDTO {
     private Long id;
@@ -8,6 +9,7 @@ public class GameMinDTO {
     private Integer year;
     private String imgUrl;
     private String shortDescription;
+    private Integer position;
 
     public GameMinDTO(){
     }
@@ -18,10 +20,15 @@ public class GameMinDTO {
         year = entity.getYear();
         imgUrl = entity.getImgUrl();
         shortDescription = entity.getShortDescription();
+
     }
 
-    public GameMinDTO toDto(Game entity){
-        return new GameMinDTO(entity);
+    public GameMinDTO(GameMinProjection projection) {
+        id = projection.getId();
+        title = projection.getTitle();
+        year = projection.getYear();
+        imgUrl = projection.getImgUrl();
+        shortDescription = projection.getShortDescription();
     }
 
     public Long getId() {

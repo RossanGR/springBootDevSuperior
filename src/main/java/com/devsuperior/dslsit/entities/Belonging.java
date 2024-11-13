@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_beloging")
+@Table(name = "tb_belonging")
 public class Belonging {
     @EmbeddedId // Está falando que essa propriedade vai representar os dois ids que estão no beloginPk
     private BelongingPK id = new BelongingPK();

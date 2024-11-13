@@ -1,14 +1,10 @@
 package com.devsuperior.dslsit.controllers;
 
+import com.devsuperior.dslsit.dto.GameDTO;
 import com.devsuperior.dslsit.dto.GameMinDTO;
-import com.devsuperior.dslsit.entities.Game;
 import com.devsuperior.dslsit.servicies.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
@@ -24,5 +20,10 @@ public class GameController {
 //        List<Game> result =  gameService.findAll();
 //        gameService.findAll().stream().toList();
         return gameService.findAll();
+    }
+
+    @GetMapping("/games/{id}")
+    public GameDTO findById(@PathVariable(value = "id") Long id){
+        return gameService.findById(id);
     }
 }
